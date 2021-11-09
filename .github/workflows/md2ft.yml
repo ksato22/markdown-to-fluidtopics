@@ -1,0 +1,18 @@
+name: md2ft workflow
+on:
+#  push:
+#    branches:
+#      main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: markdown to fluidtopics
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Collect and publish
+        run: |
+          pip install fluidtopics-markdown
+#          md2ft collect_and_publish --implicit-meta --include tfs-fluid-topics --dev-mode -u ${{secrets.FT_USER}} -p ${{secrets.FT_PASSWORD}} -s FTML_D2i ${{secrets.FT_PATH}} https://example.com
